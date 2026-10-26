@@ -1,835 +1,218 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PapaPB | Прямой экспорт зелёного кофе из Кении в РФ и СНГ</title>
-    <meta name="description" content="Прямые поставки кенийского зелёного кофе (PB, AA, AB) из Найроби. Экспресс-сэмплы в вашу ростерию, фасовка в GrainPro, от 1 мешка авиа до контейнеров морем.">
-    <meta property="og:title" content="PapaPB | Прямой экспорт зелёного кофе из Кении">
-    <meta property="og:description" content="Поставки зерна из Найроби. Сэмплы до оплаты, прозрачный сорсинг, от 1 мешка до контейнера.">
-    <meta property="og:type" content="website">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --bg-main: #FBF9F5;
-            --bg-card: #FFFFFF;
-            --bg-dark: #1C352D;
-            --text-main: #241E1C;
-            --text-muted: #625D59;
-            --text-light: #FBF9F5;
-            --accent: #C85A32;
-            --accent-hover: #AA4723;
-            --border: #E5E0D8;
-            --border-dark: #2D4C42;
-            --mono-font: 'JetBrains Mono', monospace;
-            --heading-font: 'Playfair Display', serif;
-            --body-font: 'Inter', sans-serif;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--body-font);
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
-        header {
-            background-color: rgba(251, 249, 245, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 16px 0;
-        }
-
-        .header-wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 700;
-            font-size: 1.4rem;
-        }
-
-        .logo-mark {
-            width: 32px;
-            height: 32px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-family: var(--mono-font);
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        nav { display: flex; gap: 24px; align-items: center; }
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav a:hover { color: var(--accent); }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border: 1px solid transparent;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: #fff;
-        }
-        .btn-primary:hover { background-color: var(--accent-hover); }
-
-        .btn-secondary {
-            background-color: transparent;
-            border-color: var(--text-main);
-            color: var(--text-main);
-        }
-        .btn-secondary:hover {
-            background-color: var(--text-main);
-            color: var(--bg-main);
-        }
-
-        .btn-dark {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-        }
-        .btn-dark:hover { opacity: 0.9; }
-
-        /* Hero */
-        .hero {
-            padding: 70px 0 60px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .tag-label {
-            display: inline-block;
-            font-family: var(--mono-font);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            background: rgba(200, 90, 50, 0.08);
-            padding: 6px 12px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(200, 90, 50, 0.2);
-        }
-
-        .hero h1 {
-            font-family: var(--heading-font);
-            font-size: clamp(2.2rem, 4vw, 3.4rem);
-            line-height: 1.15;
-            margin-bottom: 20px;
-            color: var(--text-main);
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            max-width: 540px;
-        }
-
-        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
-
-        .hero-facts {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border);
-        }
-
-        .fact-item {
-            font-size: 0.9rem;
-        }
-        .fact-item strong {
-            display: block;
-            font-family: var(--mono-font);
-            font-size: 1.1rem;
-            color: var(--bg-dark);
-        }
-
-        .photo-placeholder {
-            background: #EAE5DC;
-            border: 2px dashed #C5BEB3;
-            border-radius: 8px;
-            padding: 40px 20px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            min-height: 340px;
-        }
-        .photo-placeholder svg { width: 40px; height: 40px; opacity: 0.5; }
-
-        /* Section Global */
-        .section { padding: 80px 0; border-bottom: 1px solid var(--border); }
-        .section-header { margin-bottom: 48px; }
-        .section-header h2 {
-            font-family: var(--heading-font);
-            font-size: 2.2rem;
-            margin-top: 8px;
-        }
-
-        /* Catalog Grid */
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
-
-        .catalog-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 32px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .catalog-card.featured {
-            border: 2px solid var(--accent);
-            box-shadow: 0 10px 30px rgba(200, 90, 50, 0.08);
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: -14px;
-            right: 24px;
-            background: var(--accent);
-            color: #fff;
-            font-family: var(--mono-font);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
-
-        .card-header-title {
-            font-family: var(--heading-font);
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-
-        .spec-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.9rem;
-        }
-
-        .spec-table tr { border-bottom: 1px solid #F0ECE4; }
-        .spec-table td { padding: 8px 0; }
-        .spec-table td:first-child { color: var(--text-muted); }
-        .spec-table td:last-child {
-            text-align: right;
-            font-family: var(--mono-font);
-            font-weight: 600;
-        }
-
-        .placeholder-data {
-            color: #A39B8E;
-            font-style: italic;
-        }
-
-        /* Workflow Steps */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-        }
-
-        .step-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 24px;
-        }
-
-        .step-number {
-            font-family: var(--mono-font);
-            color: var(--accent);
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .step-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-        .step-time {
-            font-family: var(--mono-font);
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            background: #F2EDE4;
-            padding: 2px 8px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        /* Conditions Table */
-        .conditions-table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .conditions-table th, .conditions-table td {
-            padding: 16px 24px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .conditions-table th {
-            background-color: #F4EFE6;
-            font-family: var(--mono-font);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-        }
-
-        .conditions-table td:first-child {
-            font-weight: 600;
-            width: 30%;
-        }
-
-        /* Founder Section */
-        .founder-grid {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 40px;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 40px;
-            align-items: center;
-        }
-
-        .founder-info h3 { font-family: var(--heading-font); font-size: 1.8rem; margin-bottom: 4px; }
-        .founder-role { font-family: var(--mono-font); color: var(--accent); font-size: 0.9rem; margin-bottom: 16px; }
-
-        .legal-box {
-            margin-top: 24px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-family: var(--mono-font);
-        }
-
-        /* Form Section */
-        .form-section {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            border-radius: 12px;
-            padding: 56px 40px;
-        }
-
-        .form-section h2 { font-family: var(--heading-font); font-size: 2.2rem; margin-bottom: 12px; }
-        .form-section p { color: #A3B8B0; margin-bottom: 32px; }
-
-        .sample-form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .form-group { display: flex; flex-direction: column; gap: 6px; }
-        .form-group.full { grid-column: span 2; }
-
-        .form-group label {
-            font-size: 0.85rem;
-            font-family: var(--mono-font);
-            color: #C2D6CE;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            padding: 12px 16px;
-            border-radius: 4px;
-            border: 1px solid var(--border-dark);
-            background-color: #142821;
-            color: #fff;
-            font-family: var(--body-font);
-            font-size: 0.95rem;
-        }
-
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        /* FAQ Accordion */
-        .faq-list { display: flex; flex-direction: column; gap: 16px; }
-        .faq-item {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px 24px;
-            cursor: pointer;
-        }
-        .faq-item summary {
-            font-weight: 700;
-            font-size: 1.1rem;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-item summary::-webkit-details-marker { display: none; }
-        .faq-item summary::after { content: "+"; font-family: var(--mono-font); font-size: 1.4rem; color: var(--accent); }
-        .faq-item[open] summary::after { content: "−"; }
-        .faq-item p { margin-top: 12px; color: var(--text-muted); font-size: 0.95rem; }
-
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        @media (max-width: 900px) {
-            .hero-grid, .founder-grid { grid-template-columns: 1fr; }
-            .sample-form { grid-template-columns: 1fr; }
-            .form-group.full { grid-column: span 1; }
-            .conditions-table { display: block; overflow-x: auto; }
-            nav { display: none; }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PapaPB | Зелёный кофе из Кении напрямую</title>
+<meta name="description" content="PapaPB: экспорт зелёного кофе из Кении (AA, AB, PB) для ростерий России и СНГ. Сэмплы до оплаты, партии от 1 мешка до контейнера.">
+<meta property="og:title" content="PapaPB: зелёный кофе из Кении">
+<meta property="og:description" content="Сэмплы до оплаты. От 1 мешка авиа до контейнера морем.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#d9c9a3;--paper:#ede4cc;--ink:#23301f;--green:#4f6b3a;--red:#b3261e;--line:rgba(35,48,31,.35);--btn-ink:#ede4cc;
+--hd:'Bebas Neue','Impact','Arial Narrow',sans-serif;--tx:'IBM Plex Sans','Segoe UI',Arial,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#1d2a1a;--paper:#26361f;--ink:#e6dcc0;--green:#9dbb7c;--red:#e0584b;--line:rgba(230,220,192,.3);--btn-ink:#1d2a1a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#1d2a1a;--paper:#26361f;--ink:#e6dcc0;--green:#9dbb7c;--red:#e0584b;--line:rgba(230,220,192,.3);--btn-ink:#1d2a1a}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--tx);
+background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.045) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(0,0,0,.045) 0 1px,transparent 1px 4px)}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--hd);font-weight:400;line-height:.95;margin:0;letter-spacing:.01em}
+h2{font-size:clamp(40px,6vw,68px);margin-bottom:12px}
+p{margin:0 0 1em;max-width:62ch}
+.fill{display:inline-block;padding:0 .35em;border:1.5px dashed var(--red);color:var(--red);font-weight:500;font-size:.88em;line-height:1.4;border-radius:2px;white-space:nowrap}
+header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:2px solid var(--ink);padding-top:env(safe-area-inset-top,0px)}
+header .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.logo{font:400 34px/1 var(--hd);text-decoration:none;letter-spacing:.03em;margin-right:auto}
+.logo span{color:var(--red)}
+nav{display:flex;gap:22px;font-size:15px;font-weight:500}
+nav a{text-decoration:none}nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.btn{display:inline-block;background:var(--ink);color:var(--btn-ink);padding:13px 22px;font:600 16px/1 var(--tx);text-decoration:none;border:2px solid var(--ink);border-radius:2px;cursor:pointer}
+.btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--btn-ink);border-color:var(--ink)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:72px 0 88px}
+.hero h1{font-size:clamp(54px,8.4vw,112px);margin-bottom:24px}
+.hero .lead{font-size:20px;max-width:46ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
+.facts{display:flex;flex-wrap:wrap;gap:8px 28px;margin:36px 0 0;padding:16px 0 0;border-top:2px solid var(--ink);font-weight:500;font-size:15px;list-style:none}
+.sack{background:var(--paper);padding:28px;border:2px solid var(--ink);box-shadow:10px 10px 0 var(--ink);
+background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px)}
+.stamp{filter:url(#ink);color:var(--red);border:7px solid var(--red);padding:20px 22px 14px;transform:rotate(-3deg);font-family:var(--hd);text-transform:uppercase;animation:thunk .55s cubic-bezier(.2,1.4,.4,1) .25s both}
+.stamp .big{font-size:clamp(84px,12vw,150px);line-height:.85;display:block}
+.stamp .sub{font-size:30px;letter-spacing:.06em;border-top:4px solid var(--red);margin-top:10px;padding-top:6px;display:block}
+.stamp ul{list-style:none;margin:10px 0 0;padding:0;font-size:24px;letter-spacing:.05em;line-height:1.3}
+.stamp li{display:flex;justify-content:space-between;gap:12px;border-top:2px solid var(--red);padding-top:3px;margin-top:3px}
+.cap{font-size:13px;margin:16px 0 0;opacity:.75}
+@keyframes thunk{from{opacity:0;transform:rotate(-3deg) scale(1.35)}to{opacity:1;transform:rotate(-3deg) scale(1)}}
+section{padding:72px 0;border-top:2px solid var(--ink)}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:36px}
+.head p{margin:0}
+.grade{display:grid;grid-template-columns:200px 1fr 1.2fr;gap:32px;padding:28px 0;border-top:1px solid var(--line);align-items:start}
+.grade h3{font-size:104px;color:var(--ink)}
+.grade.flag{background:var(--paper);margin:0 -20px;padding:32px 20px;border:2px solid var(--ink)}
+.grade.flag h3{color:var(--red)}
+.grade .tag{display:block;font:600 14px/1.2 var(--tx);margin-top:8px;color:var(--green)}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:15px}
+dt{color:var(--green);font-weight:600}dd{margin:0}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);background:var(--paper)}
+.steps li{padding:24px;border-right:2px solid var(--ink)}.steps li:last-child{border:0}
+.steps b{font:400 64px/1 var(--hd);color:var(--red);display:block;margin-bottom:8px}
+.steps h3{font-size:30px;margin-bottom:8px}.steps p{font-size:15px;margin:0}
+table{width:100%;border-collapse:collapse;background:var(--paper);border:2px solid var(--ink)}
+.tw{overflow-x:auto}
+th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{width:34%;font-weight:600;color:var(--green)}
+tr:last-child th,tr:last-child td{border-bottom:0}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+.photo{aspect-ratio:4/5;background:var(--paper);border:2px dashed var(--red);display:grid;place-items:center;text-align:center;padding:24px;color:var(--red);font-weight:500}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--paper);border:2px solid var(--ink);padding:28px;box-shadow:10px 10px 0 var(--ink)}
+.form label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.form .full{grid-column:1/-1}
+input,select,textarea{font:400 16px var(--tx);padding:12px;border:2px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:2px;width:100%}
+.form .note{font-size:14px;margin:0;opacity:.8}
+details{border-top:1px solid var(--line);padding:18px 0}details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font:400 30px/1.1 var(--hd);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--red);font-size:36px;line-height:.9}
+details[open] summary::after{content:"−"}
+details p{margin:12px 0 0}
+footer{border-top:2px solid var(--ink);padding:36px 0 48px;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between}
+@media (max-width:860px){nav{display:none}.hero,.head,.about{grid-template-columns:1fr}.hero{padding:40px 0 56px}
+.grade{grid-template-columns:1fr;gap:12px}.grade h3{font-size:84px}.grade.flag{margin:0 -12px;padding:24px 12px}
+.steps{grid-template-columns:1fr 1fr}.steps li:nth-child(2){border-right:0}.steps li:nth-child(-n+2){border-bottom:2px solid var(--ink)}
+.form{grid-template-columns:1fr}section{padding:56px 0}}
+@media (prefers-reduced-motion:reduce){.stamp{animation:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="ink"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.6 0 0 0 -.38" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
 
-    <!-- Header -->
-    <header>
-        <div class="container header-wrap">
-            <a href="#" class="logo">
-                <div class="logo-mark">PB</div>
-                <span>PapaPB</span>
-            </a>
-            <nav>
-                <a href="#catalog">Сорта</a>
-                <a href="#process">Процесс</a>
-                <a href="#conditions">Условия</a>
-                <a href="#about">О нас</a>
-                <a href="#faq">FAQ</a>
-            </nav>
-            <a href="#sample-form" class="btn btn-primary">Запросить сэмплы</a>
-        </div>
-    </header>
+<header><div class="wrap">
+<a class="logo" href="#top">Papa<span>PB</span></a>
+<nav><a href="#grades">Грейды</a><a href="#process">Как работаем</a><a href="#terms">Условия</a><a href="#about">О нас</a><a href="#faq">Вопросы</a></nav>
+<a class="btn" href="#sample">Запросить сэмплы</a>
+</div></header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container hero-grid">
-            <div>
-                <span class="tag-label">🇰🇪 Оператор в Найроби • Сэмплы до оплаты</span>
-                <h1>Зелёный кофе из Кении напрямую: от 1 мешка до контейнера</h1>
-                <p class="hero-subtitle">Формируем сэмпл-киты, контролируем фасовку в GrainPro на складе в Найроби и организуем экспортную логистику (Air Cargo / Sea Cargo) с полным пакетом документов.</p>
-                <div class="hero-actions">
-                    <a href="#sample-form" class="btn btn-primary">Получить Sample Kit</a>
-                    <a href="https://t.me/papapb_coffee" target="_blank" class="btn btn-secondary">Telegram-канал</a>
-                </div>
-                <div class="hero-facts">
-                    <div class="fact-item">
-                        <strong>от 1 мешка</strong>
-                        Авиа-доставка микро-партий
-                    </div>
-                    <div class="fact-item">
-                        <strong>Sample-First</strong>
-                        Тестирование до заказа
-                    </div>
-                    <div class="fact-item">
-                        <strong>FOB / CIF</strong>
-                        Оформление документов
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="photo-placeholder">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M68 21H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2z"/>
-                        <circle cx="12" cy="13" r="4"/>
-                    </svg>
-                    <strong>[Место для фото: Сэмпл-кит на столе для каппинга]</strong>
-                    <span>Фото стола с подписанными пакетами сэмплов, формы каппинга и ложки</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<main id="top">
+<div class="wrap hero">
+<div>
+<h1>Зелёный кофе из Кении. От одного мешка до контейнера.</h1>
+<p class="lead">Отбираем лоты в Найроби, собираем сэмпл-кит и отправляем в вашу ростерию. Вы пробуете кофе до оплаты и только потом утверждаете партию.</p>
+<div class="cta"><a class="btn" href="#sample">Запросить сэмплы</a><a class="btn ghost" href="#terms">Условия и цены</a></div>
+<ul class="facts"><li>Партии от 1 мешка</li><li>Авиа и море</li><li>Упаковка GrainPro</li></ul>
+</div>
+<div>
+<div class="sack">
+<div class="stamp" role="img" aria-label="Штамп на мешке: Кения, Peaberry, нетто 60 кг, Найроби">
+<span class="big">Kenya</span>
+<span class="sub">Peaberry · PB</span>
+<ul><li><span>Net</span><span>60 kg</span></li><li><span>Packed in</span><span>GrainPro</span></li><li><span>Origin</span><span>Nairobi</span></li></ul>
+</div>
+<p class="cap">Так маркируется мешок экспортного кофе. Партии вашего заказа получают такой же штамп с номером лота и урожаем.</p>
+</div>
+</div>
+</div>
 
-    <!-- Catalog -->
-    <section class="section" id="catalog">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag-label">Спецификация лотов</span>
-                <h2>Каталог зелёного кофе</h2>
-            </div>
+<section id="grades"><div class="wrap">
+<div class="head"><h2>Три грейда в наличии</h2><p>Каждый лот приходит с описанием профиля, баллами каппинга и ценой «от». Поля, отмеченные красным, заполните своими данными перед публикацией.</p></div>
 
-            <div class="catalog-grid">
-                <!-- Kenya PB (Флагман) -->
-                <div class="catalog-card featured">
-                    <div class="featured-badge">Флагманский сорт</div>
-                    <div>
-                        <div class="card-header-title">Kenya PB (Peaberry)</div>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Редкое цельное круглое зерно. Выделяется высокой плотностью и концентрированной ароматикой.</p>
-                        <table class="spec-table">
-                            <tr><td>Регион:</td><td>Nyeri / Kirinyaga <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Обработка:</td><td>Washed (Мытая)</td></tr>
-                            <tr><td>Скрин (Размер):</td><td>PB (Peaberry)</td></tr>
-                            <tr><td>Баллы SCA:</td><td>85.5 - 87+ <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Урожай:</td><td>Crop 2025/2026 <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Влажность:</td><td>10.5% - 11.2% <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Профиль чашки:</td><td>Чёрная смородина, грейпфрут, тростниковый сахар</td></tr>
-                            <tr><td>Цена за кг (FOB):</td><td>$ <span class="placeholder-data">[УКАЖИТЕ]</span> / кг</td></tr>
-                        </table>
-                    </div>
-                    <a href="#sample-form" class="btn btn-primary" style="width: 100%;">Заказать сэмпл PB</a>
-                </div>
+<article class="grade flag">
+<div><h3>PB</h3><span class="tag">Peaberry, флагман</span></div>
+<p>Редкое круглое зерно из одной косточки в плоде. Концентрированный вкус, высокая плотность, сложный аромат. Хорошо раскрывается и на фильтре, и на эспрессо.</p>
+<dl><dt>Скрин</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Регион и станция</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Обработка</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Баллы SCA</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Урожай</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Цена от</dt><dd><span class="fill">УКАЖИТЕ</span> за кг</dd></dl>
+</article>
 
-                <!-- Kenya AA -->
-                <div class="catalog-card">
-                    <div>
-                        <div class="card-header-title">Kenya AA</div>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Крупное зерно высшей категории. Классический кенийский профиль с сочным телом.</p>
-                        <table class="spec-table">
-                            <tr><td>Регион:</td><td>Kiambu / Murang'a <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Обработка:</td><td>Washed (Мытая)</td></tr>
-                            <tr><td>Скрин (Размер):</td><td>17 / 18</td></tr>
-                            <tr><td>Баллы SCA:</td><td>86.0 - 88+ <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Урожай:</td><td>Crop 2025/2026 <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Влажность:</td><td>10.5% - 11.5% <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Профиль чашки:</td><td>Красные ягоды, цитрусы, винный послевкус</td></tr>
-                            <tr><td>Цена за кг (FOB):</td><td>$ <span class="placeholder-data">[УКАЖИТЕ]</span> / кг</td></tr>
-                        </table>
-                    </div>
-                    <a href="#sample-form" class="btn btn-secondary" style="width: 100%;">Заказать сэмпл AA</a>
-                </div>
+<article class="grade">
+<div><h3>AA</h3><span class="tag">Крупный грейд, скрин 17/18</span></div>
+<p>Яркая ягодная кислотность: красная смородина, грейпфрут, сочное тело. Классика кенийского профиля для светлой обжарки.</p>
+<dl><dt>Регион и станция</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Обработка</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Баллы SCA</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Урожай</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Цена от</dt><dd><span class="fill">УКАЖИТЕ</span> за кг</dd></dl>
+</article>
 
-                <!-- Kenya AB -->
-                <div class="catalog-card">
-                    <div>
-                        <div class="card-header-title">Kenya AB</div>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">Сбалансированный лот для стабильного коммерческого эспрессо и фильтр-кофе.</p>
-                        <table class="spec-table">
-                            <tr><td>Регион:</td><td>Embu / Machakos <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Обработка:</td><td>Washed (Мытая)</td></tr>
-                            <tr><td>Скрин (Размер):</td><td>15 / 16</td></tr>
-                            <tr><td>Баллы SCA:</td><td>84.0 - 85.5 <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Урожай:</td><td>Crop 2025/2026 <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Влажность:</td><td>10.8% - 11.5% <span class="placeholder-data">[УКАЖИТЕ]</span></td></tr>
-                            <tr><td>Профиль чашки:</td><td>Спелый цитрус, изюм, сбалансированная кислотность</td></tr>
-                            <tr><td>Цена за кг (FOB):</td><td>$ <span class="placeholder-data">[УКАЖИТЕ]</span> / кг</td></tr>
-                        </table>
-                    </div>
-                    <a href="#sample-form" class="btn btn-secondary" style="width: 100%;">Заказать сэмпл AB</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<article class="grade">
+<div><h3>AB</h3><span class="tag">Скрин 15/16</span></div>
+<p>Сбалансированный и сладкий профиль. Подходит для коммерческого эспрессо и фильтра, когда нужна стабильность чашки и понятная цена.</p>
+<dl><dt>Регион и станция</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Обработка</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Баллы SCA</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Урожай</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Цена от</dt><dd><span class="fill">УКАЖИТЕ</span> за кг</dd></dl>
+</article>
+</div></section>
 
-    <!-- How we work -->
-    <section class="section" id="process">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag-label">Прозрачный процесс</span>
-                <h2>Как происходит поставка</h2>
-            </div>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">STEP 01</div>
-                    <div class="step-title">Запрос спецификации</div>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Вы указываете желаемый сорт (PB/AA/AB), объём и требования к чашке.</p>
-                    <span class="step-time">Время: 1 рабочий день</span>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">STEP 02</div>
-                    <div class="step-title">Отправка сэмплов</div>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Формируем набор образцов и отправляем экспресс-авиапочтой в вашу ростерию.</p>
-                    <span class="step-time">Срок: <span class="placeholder-data">[УКАЖИТЕ, напр. 5-7 дней]</span></span>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">STEP 03</div>
-                    <div class="step-title">Каппинг и фиксация</div>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Вы проводите каппинг, утверждаете лот, согласовываем условия (FOB/CIF) и договор.</p>
-                    <span class="step-time">Время: по готовности</span>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">STEP 04</div>
-                    <div class="step-title">Фасовка и отгрузка</div>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Упаковываем в GrainPro + джут, оформляем сертификаты и отправляем партию.</p>
-                    <span class="step-time">Срок: <span class="placeholder-data">[УКАЖИТЕ, напр. 10-14 дней]</span></span>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="process"><div class="wrap">
+<div class="head"><h2>Как проходит первая закупка</h2><p>Четыре шага, на каждом вы решаете, идти ли дальше. Оплата только после утверждения сэмпла.</p></div>
+<ol class="steps">
+<li><b>1</b><h3>Запрос</h3><p>Присылаете грейд, объём и профиль, который нужен вашей ростерии.</p></li>
+<li><b>2</b><h3>Сэмплы</h3><p>Отправляем сэмпл-кит экспресс-почтой. Срок: <span class="fill">УКАЖИТЕ</span>.</p></li>
+<li><b>3</b><h3>Утверждение</h3><p>Вы проводите каппинг, утверждаете лот и подписываете контракт.</p></li>
+<li><b>4</b><h3>Отгрузка</h3><p>Фасуем в GrainPro, оформляем документы и отправляем авиа или контейнером.</p></li>
+</ol>
+</div></section>
 
-    <!-- Conditions -->
-    <section class="section" id="conditions">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag-label">Коммерческие параметры</span>
-                <h2>Условия поставки и экспортный регламент</h2>
-            </div>
+<section id="terms"><div class="wrap">
+<div class="head"><h2>Условия поставки</h2><p>Всё, что закупщик обычно спрашивает в первом письме, собрано в одной таблице.</p></div>
+<div class="tw"><table>
+<tr><th>Минимальный заказ</th><td>От 1 мешка авиа. Морем: контейнер FCL или сборный LCL</td></tr>
+<tr><th>Инкотермс</th><td><span class="fill">УКАЖИТЕ: FOB / CIF / DAP</span></td></tr>
+<tr><th>Оплата</th><td><span class="fill">УКАЖИТЕ</span></td></tr>
+<tr><th>Сроки сэмпла</th><td><span class="fill">УКАЖИТЕ</span></td></tr>
+<tr><th>Сроки отгрузки</th><td>Авиа: <span class="fill">УКАЖИТЕ</span>. Море: <span class="fill">УКАЖИТЕ</span></td></tr>
+<tr><th>Упаковка</th><td>Мешки с вкладышем GrainPro</td></tr>
+<tr><th>Документы</th><td><span class="fill">УКАЖИТЕ перечень</span></td></tr>
+</table></div>
+</div></section>
 
-            <table class="conditions-table">
-                <thead>
-                    <tr>
-                        <th>Параметр</th>
-                        <th>Условия и регламент</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Минимальный заказ (MOQ)</td>
-                        <td>Авиа-доставка: от 1 мешка (60 кг). Морская доставка: от 5 мешков (LCL) или сборные/полные контейнеры (FCL).</td>
-                    </tr>
-                    <tr>
-                        <td>Базисы поставки (Incoterms)</td>
-                        <td>FOB Найроби (аэропорт / порт Момбаса) или CIF (с доставкой до порта/терминала назначения).</td>
-                    </tr>
-                    <tr>
-                        <td>Тип упаковки</td>
-                        <td>Защитный герметичный вкладыш GrainPro + внешняя джутовая рогожка (60 кг мешок).</td>
-                    </tr>
-                    <tr>
-                        <td>Условия оплаты</td>
-                        <td>Предоплата по договору / аккредитив. Подробности уточняйте при согласовании партии <span class="placeholder-data">[УКАЖИТЕ]</span>.</td>
-                    </tr>
-                    <tr>
-                        <td>Экспортные документы</td>
-                        <td>Phytosanitary Certificate (Фитосанитарный), Certificate of Origin (Форма A/Ориджин), ICO Certificate, Bill of Lading / Air Waybill.</td>
-                    </tr>
-                    <tr>
-                        <td>Сроки доставки сэмплов</td>
-                        <td>Экспресс-курьер (DHL/FedEx): <span class="placeholder-data">[УКАЖИТЕ, напр. 4-7 рабочих дней]</span> прямо в ростерию.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+<section id="about"><div class="wrap about">
+<div class="photo">Фото основателя<br>на станции или за столом каппинга</div>
+<div>
+<h2>Кто стоит за PapaPB</h2>
+<p><span class="fill">УКАЖИТЕ имя</span> живёт в Найроби и сам отбирает кофе: ездит на станции обработки, проводит каппинг и контролирует фасовку. Ваш контакт в Кении один и тот же от запроса до отгрузки.</p>
+<p>Юридическое лицо: <span class="fill">УКАЖИТЕ</span>. Экспортная лицензия: <span class="fill">УКАЖИТЕ номер</span>.</p>
+<p>Здесь же покажите фото отгрузок, отзывы ростерий и логотипы клиентов, когда они появятся. Для первой закупки это самый сильный аргумент.</p>
+</div>
+</div></section>
 
-    <!-- About / Founder -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag-label">Оператор на месте</span>
-                <h2>Кто стоит за PapaPB</h2>
-            </div>
+<section id="sample"><div class="wrap">
+<div class="head"><h2>Запросить сэмпл-кит</h2><p>Ответим с наличием лотов и ценами. Заявка откроется в вашей почте, останется только отправить.</p></div>
+<form class="form" id="f">
+<label>Имя<input name="n" required autocomplete="name"></label>
+<label>Компания<input name="c" autocomplete="organization"></label>
+<label>Город и страна<input name="g" required></label>
+<label>Тип бизнеса<select name="t"><option>Ростерия</option><option>Кофейня с обжаркой</option><option>Импортёр или трейдер</option><option>Другое</option></select></label>
+<label>Грейд<select name="r"><option>PB</option><option>AA</option><option>AB</option><option>Несколько грейдов</option></select></label>
+<label>Примерный объём<input name="v" placeholder="например, 5 мешков в месяц"></label>
+<label class="full">Telegram или WhatsApp<input name="m" required></label>
+<label class="full">Комментарий<textarea name="k" rows="3"></textarea></label>
+<div class="full"><button class="btn" type="submit">Отправить заявку</button></div>
+<p class="note full">Или напишите сразу: <a href="mailto:pb@papapeaberry.site">pb@papapeaberry.site</a>, <a href="https://t.me/papapb_coffee">Telegram @papapb_coffee</a></p>
+</form>
+</div></section>
 
-            <div class="founder-grid">
-                <div class="photo-placeholder" style="min-height: 280px;">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-                    </svg>
-                    <strong>[Фото: Основатель PapaPB]</strong>
-                    <span>Портрет на фоне кофейного склада или аукциона в Найроби</span>
-                </div>
-                <div class="founder-info">
-                    <h3>Юрий Козырев <span class="placeholder-data">[Уточнить имя]</span></h3>
-                    <div class="founder-role">Основатель PapaPB • 10+ лет работы в Кении</div>
-                    <p style="color: var(--text-muted); margin-bottom: 12px;">«Мы живем и работаем в Найроби. PapaPB создан как прямой B2B-канал для ростерий из РФ и СНГ, которым нужен прозрачный доступ к кенийским лотам свежего урожая без цепочки перекупщиков.»</p>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Мы лично сопровождаем процесс: от отбора образцов на станциях и аукционе до контроля качества запайки GrainPro перед запечаткой контейнера.</p>
+<section id="faq"><div class="wrap">
+<h2>Частые вопросы</h2>
+<details><summary>Сколько стоит сэмпл-кит?</summary><p><span class="fill">УКАЖИТЕ</span>. Если сэмпл возвращается в заказ, напишите это здесь.</p></details>
+<details><summary>Какой минимальный заказ?</summary><p>Один мешок самолётом. Для морской доставки: контейнер целиком (FCL) или сборный груз (LCL).</p></details>
+<details><summary>Как быстро кофе приезжает?</summary><p>Авиа: <span class="fill">УКАЖИТЕ</span>. Море: <span class="fill">УКАЖИТЕ</span>. Срок зависит от маршрута и таможни.</p></details>
+<details><summary>Какие документы нужны для ввоза в Россию?</summary><p>Набор зависит от маршрута и вашего брокера. Мы заранее согласуем перечень и готовим пакет со своей стороны: <span class="fill">УКАЖИТЕ</span>.</p></details>
+<details><summary>Как оплатить?</summary><p><span class="fill">УКАЖИТЕ способы и схему платежа</span>.</p></details>
+<details><summary>Как я проверю качество до оплаты?</summary><p>Проведите каппинг присланного сэмпла и сравните с описанием лота. Партию мы отгружаем после вашего утверждения.</p></details>
+</div></section>
+</main>
 
-                    <div class="legal-box">
-                        <strong>Юридическая информация:</strong><br>
-                        Компания: Agropeat International Ltd / PapaPB Sourcing <span class="placeholder-data">[УКАЖИТЕ]</span><br>
-                        Адрес: Nairobi, Kenya <span class="placeholder-data">[УКАЖИТЕ АДРЕС]</span><br>
-                        Лицензия на экспорт: KCB/Coffee Export Ref #<span class="placeholder-data">[УКАЖИТЕ]</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer><div class="wrap">
+<div><strong>PapaPB</strong><br>Экспорт зелёного кофе из Кении<br>Найроби</div>
+<div>pb@papapeaberry.site<br><a href="https://t.me/papapb_coffee">Telegram @papapb_coffee</a><br>WhatsApp: <span class="fill">УКАЖИТЕ</span></div>
+<div>Юрлицо: <span class="fill">УКАЖИТЕ</span></div>
+</div></footer>
 
-    <!-- Proofs Placeholder (Скрыто при отсутствии) -->
-    <section class="section" style="display: none;">
-        <div class="container">
-            <h2>Доказательства и отгрузки</h2>
-            <!-- Фото отгрузок, сертификатов и отзывы клиентов -->
-        </div>
-    </section>
-
-    <!-- Sample Request Form -->
-    <section class="section" id="sample-form">
-        <div class="container">
-            <div class="form-section">
-                <h2>Запросить Sample Kit и спецификацию</h2>
-                <p>Заполните форму, и мы свяжемся с вами для отправки образцов кофе свежего урожая.</p>
-
-                <form class="sample-form" action="mailto:pb@papapeaberry.site" method="post" enctype="text/plain">
-                    <div class="form-group">
-                        <label for="name">Ваше имя *</label>
-                        <input type="text" id="name" name="Name" required placeholder="Иван Иванов">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="company">Название компании / Ростерии *</label>
-                        <input type="text" id="company" name="Company" required placeholder="Tasty Roasters">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="location">Город и страна *</label>
-                        <input type="text" id="location" name="Location" required placeholder="Москва, Россия">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="grade">Интересующий грейд</label>
-                        <select id="grade" name="Grade">
-                            <option value="Kenya PB">Kenya PB (Peaberry) - Флагман</option>
-                            <option value="Kenya AA">Kenya AA</option>
-                            <option value="Kenya AB">Kenya AB</option>
-                            <option value="Все сорта">Нужен комплексный Sample Kit (PB + AA + AB)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="volume">Планируемый объём закупки</label>
-                        <select id="volume" name="Volume">
-                            <option value="1-5 мешков">Микро-партия (1 - 5 мешков, Авиа)</option>
-                            <option value="5-20 мешков">Малая партия (5 - 20 мешков)</option>
-                            <option value="Контейнер LCL/FCL">Контейнерная поставка (FCL/LCL)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact">Email / Telegram / WhatsApp *</label>
-                        <input type="text" id="contact" name="Contact" required placeholder="@username или +7 (999) 000-00-00">
-                    </div>
-
-                    <div class="form-group full">
-                        <label for="comment">Комментарий или пожелания к профилю</label>
-                        <textarea id="comment" name="Comment" rows="3" placeholder="Укажите нужный профиль обжарки, требования к кислотности и т.д."></textarea>
-                    </div>
-
-                    <div class="form-group full">
-                        <button type="submit" class="btn btn-primary" style="padding: 16px; font-size: 1rem;">Отправить заявку на сэмпл-кит</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag-label">Ответы на вопросы</span>
-                <h2>Часто задаваемые вопросы</h2>
-            </div>
-
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>Сколько стоит сэмпл-кит и как происходит доставка?</summary>
-                    <p>Сэмпл-киты предоставляются бесплатно для действующих ростерий. Заказчик оплачивает только курьерскую экспресс-доставку (DHL/FedEx) из Найроби до вашей ростерии. <span class="placeholder-data">[Уточните точные условия]</span></p>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Каков минимальный объём заказа (MOQ)?</summary>
-                    <p>Минимальная партия для отправки авиа-транспортом составляет 1 джутовый мешок (60 кг). Для морских отгрузок доступен вариант LCL (сборный груз) от 5 мешков или целый контейнер FCL.</p>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Какие документы вы предоставляете для растаможки в РФ?</summary>
-                    <p>Мы предоставляем полный пакет экспортных документов: Фитосанитарный сертификат (Phytosanitary Certificate), Сертификат происхождения (Certificate of Origin), Инвойс, Упаковочный лист (Packing List) и Авиа/Морскую накладную.</p>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Как гарантируется сохранность зерна при транспортировке?</summary>
-                    <p>Весь зелёный кофе перед отправкой упаковывается в оригинальные герметичные вкладыши GrainPro, которые защищают зерно от перепадов влажности и посторонних запахов, после чего помещается в стандартные джутовые мешки.</p>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Как происходит проверка качества перед отгрузкой?</summary>
-                    <p>Каждая партия проходит двойной каппинг: перед отбором лота и на этапе финальной упаковки на экспортном складе в Найроби. Мы отправляем фото- и видеоотчёт запечатывания вашей партии.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-wrap">
-            <div>
-                <a href="#" class="logo" style="font-size: 1.1rem; margin-bottom: 8px;">
-                    <div class="logo-mark" style="width:24px; height:24px; font-size:0.7rem;">PB</div>
-                    <span>PapaPB</span>
-                </a>
-                <p>Прямой экспорт зелёного кофе из Кении • Найроби</p>
-            </div>
-
-            <div style="font-family: var(--mono-font);">
-                Email: <a href="mailto:pb@papapeaberry.site" style="color: var(--accent);">pb@papapeaberry.site</a><br>
-                Telegram: <a href="https://t.me/papapb_coffee" target="_blank" style="color: var(--accent);">@papapb_coffee</a><br>
-                WhatsApp: <a href="https://wa.me/254000000000" target="_blank" style="color: var(--accent);">+254 <span class="placeholder-data">[УКАЖИТЕ]</span></a>
-            </div>
-        </div>
-    </footer>
-
+<script>
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(this);
+var b=['Имя: '+d.get('n'),'Компания: '+d.get('c'),'Город и страна: '+d.get('g'),'Тип бизнеса: '+d.get('t'),'Грейд: '+d.get('r'),'Объём: '+d.get('v'),'Контакт: '+d.get('m'),'Комментарий: '+d.get('k')].join('\n');
+window.location.href='mailto:pb@papapeaberry.site?subject='+encodeURIComponent('Запрос сэмпл-кита')+'&body='+encodeURIComponent(b);});
+</script>
 </body>
 </html>
