@@ -3,216 +3,465 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PapaPB | Зелёный кофе из Кении напрямую</title>
-<meta name="description" content="PapaPB: экспорт зелёного кофе из Кении (AA, AB, PB) для ростерий России и СНГ. Сэмплы до оплаты, партии от 1 мешка до контейнера.">
-<meta property="og:title" content="PapaPB: зелёный кофе из Кении">
-<meta property="og:description" content="Сэмплы до оплаты. От 1 мешка авиа до контейнера морем.">
+<title>PapaPB | Прямой экспорт зелёного кофе из Кении</title>
+<meta name="description" content="PapaPB: прямой экспорт свежего кенийского зелёного кофе (PB, AA, AB) из Найроби. Сэмплы до оплаты, от 1 мешка авиа до контейнеров морем.">
+<meta property="og:title" content="PapaPB | Прямой экспорт зелёного кофе из Кении">
+<meta property="og:description" content="Сэмплы до оплаты. От 1 мешка авиа до контейнеров морем. Прямой оператор в Найроби.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#d9c9a3;--paper:#ede4cc;--ink:#23301f;--green:#4f6b3a;--red:#b3261e;--line:rgba(35,48,31,.35);--btn-ink:#ede4cc;
---hd:'Bebas Neue','Impact','Arial Narrow',sans-serif;--tx:'IBM Plex Sans','Segoe UI',Arial,sans-serif;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#1d2a1a;--paper:#26361f;--ink:#e6dcc0;--green:#9dbb7c;--red:#e0584b;--line:rgba(230,220,192,.3);--btn-ink:#1d2a1a}}
-:root[data-theme="dark"]{color-scheme:dark;--bg:#1d2a1a;--paper:#26361f;--ink:#e6dcc0;--green:#9dbb7c;--red:#e0584b;--line:rgba(230,220,192,.3);--btn-ink:#1d2a1a}
-*,*::before,*::after{box-sizing:inherit}
-html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--tx);
-background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.045) 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,rgba(0,0,0,.045) 0 1px,transparent 1px 4px)}
-a{color:inherit}
-.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
-h1,h2,h3{font-family:var(--hd);font-weight:400;line-height:.95;margin:0;letter-spacing:.01em}
-h2{font-size:clamp(40px,6vw,68px);margin-bottom:12px}
-p{margin:0 0 1em;max-width:62ch}
-.fill{display:inline-block;padding:0 .35em;border:1.5px dashed var(--red);color:var(--red);font-weight:500;font-size:.88em;line-height:1.4;border-radius:2px;white-space:nowrap}
-header{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:2px solid var(--ink);padding-top:env(safe-area-inset-top,0px)}
-header .wrap{display:flex;align-items:center;gap:24px;height:64px}
-.logo{font:400 34px/1 var(--hd);text-decoration:none;letter-spacing:.03em;margin-right:auto}
-.logo span{color:var(--red)}
-nav{display:flex;gap:22px;font-size:15px;font-weight:500}
-nav a{text-decoration:none}nav a:hover{text-decoration:underline;text-underline-offset:4px}
-.btn{display:inline-block;background:var(--ink);color:var(--btn-ink);padding:13px 22px;font:600 16px/1 var(--tx);text-decoration:none;border:2px solid var(--ink);border-radius:2px;cursor:pointer}
-.btn:hover{background:var(--red);border-color:var(--red);color:#fff}
-.btn.ghost{background:transparent;color:var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--btn-ink);border-color:var(--ink)}
-.btn:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--red);outline-offset:3px}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:72px 0 88px}
-.hero h1{font-size:clamp(54px,8.4vw,112px);margin-bottom:24px}
-.hero .lead{font-size:20px;max-width:46ch}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
-.facts{display:flex;flex-wrap:wrap;gap:8px 28px;margin:36px 0 0;padding:16px 0 0;border-top:2px solid var(--ink);font-weight:500;font-size:15px;list-style:none}
-.sack{background:var(--paper);padding:28px;border:2px solid var(--ink);box-shadow:10px 10px 0 var(--ink);
-background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px)}
-.stamp{filter:url(#ink);color:var(--red);border:7px solid var(--red);padding:20px 22px 14px;transform:rotate(-3deg);font-family:var(--hd);text-transform:uppercase;animation:thunk .55s cubic-bezier(.2,1.4,.4,1) .25s both}
-.stamp .big{font-size:clamp(84px,12vw,150px);line-height:.85;display:block}
-.stamp .sub{font-size:30px;letter-spacing:.06em;border-top:4px solid var(--red);margin-top:10px;padding-top:6px;display:block}
-.stamp ul{list-style:none;margin:10px 0 0;padding:0;font-size:24px;letter-spacing:.05em;line-height:1.3}
-.stamp li{display:flex;justify-content:space-between;gap:12px;border-top:2px solid var(--red);padding-top:3px;margin-top:3px}
-.cap{font-size:13px;margin:16px 0 0;opacity:.75}
-@keyframes thunk{from{opacity:0;transform:rotate(-3deg) scale(1.35)}to{opacity:1;transform:rotate(-3deg) scale(1)}}
-section{padding:72px 0;border-top:2px solid var(--ink)}
-.head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:36px}
-.head p{margin:0}
-.grade{display:grid;grid-template-columns:200px 1fr 1.2fr;gap:32px;padding:28px 0;border-top:1px solid var(--line);align-items:start}
-.grade h3{font-size:104px;color:var(--ink)}
-.grade.flag{background:var(--paper);margin:0 -20px;padding:32px 20px;border:2px solid var(--ink)}
-.grade.flag h3{color:var(--red)}
-.grade .tag{display:block;font:600 14px/1.2 var(--tx);margin-top:8px;color:var(--green)}
-dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:15px}
-dt{color:var(--green);font-weight:600}dd{margin:0}
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);background:var(--paper)}
-.steps li{padding:24px;border-right:2px solid var(--ink)}.steps li:last-child{border:0}
-.steps b{font:400 64px/1 var(--hd);color:var(--red);display:block;margin-bottom:8px}
-.steps h3{font-size:30px;margin-bottom:8px}.steps p{font-size:15px;margin:0}
-table{width:100%;border-collapse:collapse;background:var(--paper);border:2px solid var(--ink)}
-.tw{overflow-x:auto}
-th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
-th{width:34%;font-weight:600;color:var(--green)}
-tr:last-child th,tr:last-child td{border-bottom:0}
-.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
-.photo{aspect-ratio:4/5;background:var(--paper);border:2px dashed var(--red);display:grid;place-items:center;text-align:center;padding:24px;color:var(--red);font-weight:500}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--paper);border:2px solid var(--ink);padding:28px;box-shadow:10px 10px 0 var(--ink)}
-.form label{display:grid;gap:6px;font-weight:600;font-size:14px}
-.form .full{grid-column:1/-1}
-input,select,textarea{font:400 16px var(--tx);padding:12px;border:2px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:2px;width:100%}
-.form .note{font-size:14px;margin:0;opacity:.8}
-details{border-top:1px solid var(--line);padding:18px 0}details:last-of-type{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;font:400 30px/1.1 var(--hd);list-style:none;display:flex;justify-content:space-between;gap:16px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--red);font-size:36px;line-height:.9}
-details[open] summary::after{content:"−"}
-details p{margin:12px 0 0}
-footer{border-top:2px solid var(--ink);padding:36px 0 48px;font-size:15px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between}
-@media (max-width:860px){nav{display:none}.hero,.head,.about{grid-template-columns:1fr}.hero{padding:40px 0 56px}
-.grade{grid-template-columns:1fr;gap:12px}.grade h3{font-size:84px}.grade.flag{margin:0 -12px;padding:24px 12px}
-.steps{grid-template-columns:1fr 1fr}.steps li:nth-child(2){border-right:0}.steps li:nth-child(-n+2){border-bottom:2px solid var(--ink)}
-.form{grid-template-columns:1fr}section{padding:56px 0}}
-@media (prefers-reduced-motion:reduce){.stamp{animation:none}html{scroll-behavior:auto}}
+:root {
+    --bg: #d9c9a3;
+    --paper: #ede4cc;
+    --ink: #23301f;
+    --green: #4f6b3a;
+    --red: #b3261e;
+    --line: rgba(35,48,31,.35);
+    --btn-ink: #ede4cc;
+    --hd: 'Bebas Neue', 'Impact', sans-serif;
+    --tx: 'IBM Plex Sans', sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --bg: #1d2a1a;
+        --paper: #26361f;
+        --ink: #e6dcc0;
+        --green: #9dbb7c;
+        --red: #e0584b;
+        --line: rgba(230,220,192,.3);
+        --btn-ink: #1d2a1a;
+    }
+}
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #1d2a1a;
+    --paper: #26361f;
+    --ink: #e6dcc0;
+    --green: #9dbb7c;
+    --red: #e0584b;
+    --line: rgba(230,220,192,.3);
+    --btn-ink: #1d2a1a;
+}
+*,*::before,*::after { box-sizing: inherit; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(72px + env(safe-area-inset-top,0px)); }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--tx);
+    background-image: repeating-linear-gradient(0deg,rgba(0,0,0,.045) 0 1px,transparent 1px 4px), repeating-linear-gradient(90deg,rgba(0,0,0,.045) 0 1px,transparent 1px 4px);
+}
+a { color: inherit; }
+.wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+h1,h2,h3 { font-family: var(--hd); font-weight: 400; line-height: .95; margin: 0; letter-spacing: .01em; }
+h2 { font-size: clamp(40px, 6vw, 68px); margin-bottom: 12px; }
+p { margin: 0 0 1em; max-width: 62ch; }
+.fill { display: inline-block; padding: 0 .35em; border: 1.5px dashed var(--red); color: var(--red); font-weight: 500; font-size: .88em; line-height: 1.4; border-radius: 2px; white-space: nowrap; }
+
+header { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 2px solid var(--ink); padding-top: env(safe-area-inset-top,0px); }
+header .wrap { display: flex; align-items: center; gap: 24px; height: 64px; }
+.logo { font: 400 34px/1 var(--hd); text-decoration: none; letter-spacing: .03em; margin-right: auto; }
+.logo span { color: var(--red); }
+nav { display: flex; gap: 22px; font-size: 15px; font-weight: 500; }
+nav a { text-decoration: none; }
+nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.btn { display: inline-block; background: var(--ink); color: var(--btn-ink); padding: 13px 22px; font: 600 16px/1 var(--tx); text-decoration: none; border: 2px solid var(--ink); border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+.btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--btn-ink); border-color: var(--ink); }
+
+.hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding: 72px 0 88px; }
+.hero h1 { font-size: clamp(54px, 8.4vw, 112px); margin-bottom: 24px; }
+.hero .lead { font-size: 20px; max-width: 46ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 36px 0 0; padding: 16px 0 0; border-top: 2px solid var(--ink); font-weight: 500; font-size: 15px; list-style: none; }
+
+.sack { background: var(--paper); padding: 28px; border: 2px solid var(--ink); box-shadow: 10px 10px 0 var(--ink); background-image: repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px), repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px); }
+.stamp { filter: url(#ink); color: var(--red); border: 7px solid var(--red); padding: 20px 22px 14px; transform: rotate(-3deg); font-family: var(--hd); text-transform: uppercase; animation: thunk .55s cubic-bezier(.2,1.4,.4,1) .25s both; }
+.stamp .big { font-size: clamp(84px, 12vw, 150px); line-height: .85; display: block; }
+.stamp .sub { font-size: 30px; letter-spacing: .06em; border-top: 4px solid var(--red); margin-top: 10px; padding-top: 6px; display: block; }
+.stamp ul { list-style: none; margin: 10px 0 0; padding: 0; font-size: 24px; letter-spacing: .05em; line-height: 1.3; }
+.stamp li { display: flex; justify-content: space-between; gap: 12px; border-top: 2px solid var(--red); padding-top: 3px; margin-top: 3px; }
+.cap { font-size: 13px; margin: 16px 0 0; opacity: .75; }
+
+@keyframes thunk { from { opacity: 0; transform: rotate(-3deg) scale(1.35); } to { opacity: 1; transform: rotate(-3deg) scale(1); } }
+
+section { padding: 72px 0; border-top: 2px solid var(--ink); }
+.head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 36px; }
+.head p { margin: 0; }
+
+.grade { display: grid; grid-template-columns: 200px 1fr 1.2fr; gap: 32px; padding: 28px 0; border-top: 1px solid var(--line); align-items: start; }
+.grade h3 { font-size: 104px; color: var(--ink); }
+.grade.flag { background: var(--paper); margin: 0 -20px; padding: 32px 20px; border: 2px solid var(--ink); }
+.grade.flag h3 { color: var(--red); }
+.grade .tag { display: block; font: 600 14px/1.2 var(--tx); margin-top: 8px; color: var(--green); }
+
+dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: 15px; }
+dt { color: var(--green); font-weight: 600; }
+dd { margin: 0; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 2px solid var(--ink); background: var(--paper); }
+.steps li { padding: 24px; border-right: 2px solid var(--ink); }
+.steps li:last-child { border: 0; }
+.steps b { font: 400 64px/1 var(--hd); color: var(--red); display: block; margin-bottom: 8px; }
+.steps h3 { font-size: 30px; margin-bottom: 8px; }
+.steps p { font-size: 15px; margin: 0; }
+
+table { width: 100%; border-collapse: collapse; background: var(--paper); border: 2px solid var(--ink); }
+.tw { overflow-x: auto; }
+th, td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { width: 34%; font-weight: 600; color: var(--green); }
+tr:last-child th, tr:last-child td { border-bottom: 0; }
+
+.about { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: start; }
+.photo { aspect-ratio: 4/5; background: var(--paper); border: 2px dashed var(--red); display: grid; place-items: center; text-align: center; padding: 24px; color: var(--red); font-weight: 500; }
+
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; background: var(--paper); border: 2px solid var(--ink); padding: 28px; box-shadow: 10px 10px 0 var(--ink); }
+.form label { display: grid; gap: 6px; font-weight: 600; font-size: 14px; }
+.form .full { grid-column: 1/-1; }
+input, select, textarea { font: 400 16px var(--tx); padding: 12px; border: 2px solid var(--ink); background: var(--bg); color: var(--ink); border-radius: 2px; width: 100%; }
+.form .note { font-size: 14px; margin: 0; opacity: .8; }
+
+details { border-top: 1px solid var(--line); padding: 18px 0; }
+details:last-of-type { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; font: 400 30px/1.1 var(--hd); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--red); font-size: 36px; line-height: .9; }
+details[open] summary::after { content: "−"; }
+details p { margin: 12px 0 0; }
+
+footer { border-top: 2px solid var(--ink); padding: 36px 0 48px; font-size: 15px; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 40px; justify-content: space-between; }
+
+@media (max-width: 860px) {
+    nav { display: none; }
+    .hero, .head, .about { grid-template-columns: 1fr; }
+    .hero { padding: 40px 0 56px; }
+    .grade { grid-template-columns: 1fr; gap: 12px; }
+    .grade h3 { font-size: 84px; }
+    .grade.flag { margin: 0 -12px; padding: 24px 12px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .steps li:nth-child(2) { border-right: 0; }
+    .steps li:nth-child(-n+2) { border-bottom: 2px solid var(--ink); }
+    .form { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+}
+@media (prefers-reduced-motion: reduce) { .stamp { animation: none; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="ink"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.6 0 0 0 -.38" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="ink">
+    <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  2.6 0 0 0 -.38" result="m"/>
+    <feComposite in="SourceGraphic" in2="m" operator="in"/>
+  </filter>
+</svg>
 
-<header><div class="wrap">
-<a class="logo" href="#top">Papa<span>PB</span></a>
-<nav><a href="#grades">Грейды</a><a href="#process">Как работаем</a><a href="#terms">Условия</a><a href="#about">О нас</a><a href="#faq">Вопросы</a></nav>
-<a class="btn" href="#sample">Запросить сэмплы</a>
-</div></header>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Papa<span>PB</span></a>
+    <nav>
+      <a href="#grades">Грейды</a>
+      <a href="#process">Как работаем</a>
+      <a href="#terms">Условия</a>
+      <a href="#about">О нас</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn" href="#sample">Запросить Offer-sheet и сэмплы</a>
+  </div>
+</header>
 
 <main id="top">
-<div class="wrap hero">
-<div>
-<h1>Зелёный кофе из Кении. От одного мешка до контейнера.</h1>
-<p class="lead">Отбираем лоты в Найроби, собираем сэмпл-кит и отправляем в вашу ростерию. Вы пробуете кофе до оплаты и только потом утверждаете партию.</p>
-<div class="cta"><a class="btn" href="#sample">Запросить сэмплы</a><a class="btn ghost" href="#terms">Условия и цены</a></div>
-<ul class="facts"><li>Партии от 1 мешка</li><li>Авиа и море</li><li>Упаковка GrainPro</li></ul>
-</div>
-<div>
-<div class="sack">
-<div class="stamp" role="img" aria-label="Штамп на мешке: Кения, Peaberry, нетто 60 кг, Найроби">
-<span class="big">Kenya</span>
-<span class="sub">Peaberry · PB</span>
-<ul><li><span>Net</span><span>60 kg</span></li><li><span>Packed in</span><span>GrainPro</span></li><li><span>Origin</span><span>Nairobi</span></li></ul>
-</div>
-<p class="cap">Так маркируется мешок экспортного кофе. Партии вашего заказа получают такой же штамп с номером лота и урожаем.</p>
-</div>
-</div>
-</div>
+  <!-- Hero Section -->
+  <div class="wrap hero">
+    <div>
+      <h1>Зелёный кофе из Кении. От одного мешка до контейнера.</h1>
+      <p class="lead">Отбираем лоты на месте в Найроби, собираем сэмпл-кит свежего урожая и отправляем в вашу ростерию. Вы тестируете зерно до оплаты и только после этого утверждаете отгрузку.</p>
+      <div class="cta">
+        <a class="btn" href="#sample">Запросить сэмпл-кит</a>
+        <a class="btn ghost" href="#terms">Условия поставки</a>
+      </div>
+      <ul class="facts">
+        <li>От 1 мешка (Авиа)</li>
+        <li>Контейнеры (Море)</li>
+        <li>Прямой оператор в Найроби</li>
+      </ul>
+    </div>
+    <div>
+      <div class="sack">
+        <div class="stamp" role="img" aria-label="Штамп на мешке: Кения, Peaberry, нетто 60 кг, Найроби">
+          <span class="big">Kenya</span>
+          <span class="sub">Peaberry · PB</span>
+          <ul>
+            <li><span>Net</span><span>60 kg</span></li>
+            <li><span>Export</span><span>Direct</span></li>
+            <li><span>Origin</span><span>Nairobi</span></li>
+          </ul>
+        </div>
+        <p class="cap">Маркировка экспортных партий на складе в Найроби. Свежий урожай отбирается напрямую перед отправкой.</p>
+      </div>
+    </div>
+  </div>
 
-<section id="grades"><div class="wrap">
-<div class="head"><h2>Три грейда в наличии</h2><p>Каждый лот приходит с описанием профиля, баллами каппинга и ценой «от». Поля, отмеченные красным, заполните своими данными перед публикацией.</p></div>
+  <!-- Grades Section -->
+  <section id="grades">
+    <div class="wrap">
+      <div class="head">
+        <h2>Основные кенийские грейды</h2>
+        <p>Ассортимент лотов и фабрик обновляется по ходу сбора урожая. Запросите актуальный Offer-sheet под задачи вашей ростерии.</p>
+      </div>
 
-<article class="grade flag">
-<div><h3>PB</h3><span class="tag">Peaberry, флагман</span></div>
-<p>Редкое круглое зерно из одной косточки в плоде. Концентрированный вкус, высокая плотность, сложный аромат. Хорошо раскрывается и на фильтре, и на эспрессо.</p>
-<dl><dt>Скрин</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Регион и станция</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Обработка</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Баллы SCA</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Урожай</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Цена от</dt><dd><span class="fill">УКАЖИТЕ</span> за кг</dd></dl>
-</article>
+      <!-- Kenya PB -->
+      <article class="grade flag">
+        <div>
+          <h3>PB</h3>
+          <span class="tag">Peaberry · Флагман</span>
+        </div>
+        <p>Редкое цельное круглое зерно. Выделяется плотным телом, концентрированной ягодной кислотностью и сложным ароматом. Отличный выбор как под фильтр, так и для ярких спешелти-эспрессо.</p>
+        <dl>
+          <dt>Скрин (Размер):</dt><dd>PB (Peaberry)</dd>
+          <dt>Регионы:</dt><dd>Nyeri / Kirinyaga / Kiambu (ротируемые микролоты)</dd>
+          <dt>Обработка:</dt><dd>Washed (Мытая)</dd>
+          <dt>Оценка SCA:</dt><dd>85.5 – 87+ <span class="fill">УКАТИТЬ В OFFER-SHEET</span></dd>
+          <dt>Урожай:</dt><dd>Crop 2025/2026 <span class="fill">УКАЖИТЕ</span></dd>
+          <dt>Ориентир цены:</dt><dd>от $<span class="fill">УКАЖИТЕ</span> / кг (FOB Найроби)</dd>
+        </dl>
+      </article>
 
-<article class="grade">
-<div><h3>AA</h3><span class="tag">Крупный грейд, скрин 17/18</span></div>
-<p>Яркая ягодная кислотность: красная смородина, грейпфрут, сочное тело. Классика кенийского профиля для светлой обжарки.</p>
-<dl><dt>Регион и станция</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Обработка</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Баллы SCA</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Урожай</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Цена от</dt><dd><span class="fill">УКАЖИТЕ</span> за кг</dd></dl>
-</article>
+      <!-- Kenya AA -->
+      <article class="grade">
+        <div>
+          <h3>AA</h3>
+          <span class="tag">Крупный грейд · Скрин 17/18</span>
+        </div>
+        <p>Сочный и понятный кенийский профиль: красная смородина, цитрусы, грейпфрут и сочное тело. Выбор ростерий для светлой обжарки под фильтр.</p>
+        <dl>
+          <dt>Скрин (Размер):</dt><dd>17 / 18</dd>
+          <dt>Регионы:</dt><dd>Nyeri / Murang'a / Embu</dd>
+          <dt>Обработка:</dt><dd>Washed (Мытая)</dd>
+          <dt>Оценка SCA:</dt><dd>86.0 – 88+ <span class="fill">УКАЖИТЕ</span></dd>
+          <dt>Урожай:</dt><dd>Crop 2025/2026 <span class="fill">УКАЖИТЕ</span></dd>
+          <dt>Ориентир цены:</dt><dd>от $<span class="fill">УКАЖИТЕ</span> / кг (FOB Найроби)</dd>
+        </dl>
+      </article>
 
-<article class="grade">
-<div><h3>AB</h3><span class="tag">Скрин 15/16</span></div>
-<p>Сбалансированный и сладкий профиль. Подходит для коммерческого эспрессо и фильтра, когда нужна стабильность чашки и понятная цена.</p>
-<dl><dt>Регион и станция</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Обработка</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Баллы SCA</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Урожай</dt><dd><span class="fill">УКАЖИТЕ</span></dd><dt>Цена от</dt><dd><span class="fill">УКАЖИТЕ</span> за кг</dd></dl>
-</article>
-</div></section>
+      <!-- Kenya AB -->
+      <article class="grade">
+        <div>
+          <h3>AB</h3>
+          <span class="tag">Классический грейд · Скрин 15/16</span>
+        </div>
+        <p>Сбалансированная и сладкая чашка. Идеален для коммерческого эспрессо и фильтра, когда важна стабильность профиля и понятное ценообразование.</p>
+        <dl>
+          <dt>Скрин (Размер):</dt><dd>15 / 16</dd>
+          <dt>Регионы:</dt><dd>Kirinyaga / Embu / Machakos</dd>
+          <dt>Обработка:</dt><dd>Washed (Мытая)</dd>
+          <dt>Оценка SCA:</dt><dd>84.0 – 85.5 <span class="fill">УКАЖИТЕ</span></dd>
+          <dt>Урожай:</dt><dd>Crop 2025/2026 <span class="fill">УКАЖИТЕ</span></dd>
+          <dt>Ориентир цены:</dt><dd>от $<span class="fill">УКАЖИТЕ</span> / кг (FOB Найроби)</dd>
+        </dl>
+      </article>
+    </div>
+  </section>
 
-<section id="process"><div class="wrap">
-<div class="head"><h2>Как проходит первая закупка</h2><p>Четыре шага, на каждом вы решаете, идти ли дальше. Оплата только после утверждения сэмпла.</p></div>
-<ol class="steps">
-<li><b>1</b><h3>Запрос</h3><p>Присылаете грейд, объём и профиль, который нужен вашей ростерии.</p></li>
-<li><b>2</b><h3>Сэмплы</h3><p>Отправляем сэмпл-кит экспресс-почтой. Срок: <span class="fill">УКАЖИТЕ</span>.</p></li>
-<li><b>3</b><h3>Утверждение</h3><p>Вы проводите каппинг, утверждаете лот и подписываете контракт.</p></li>
-<li><b>4</b><h3>Отгрузка</h3><p>Фасуем в GrainPro, оформляем документы и отправляем авиа или контейнером.</p></li>
-</ol>
-</div></section>
+  <!-- Process Section -->
+  <section id="process">
+    <div class="wrap">
+      <div class="head">
+        <h2>Схема работы и первая закупка</h2>
+        <p>Прозрачный регламент от первого запроса спецификации до отгрузки со склада в Найроби.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <b>1</b>
+          <h3>Запрос</h3>
+          <p>Вы запрашиваете актуальный Offer-sheet с доступными лотами сбора и говорите, какие сэмплы нужны.</p>
+        </li>
+        <li>
+          <b>2</b>
+          <h3>Сэмплы</h3>
+          <p>Собираем Sample Kit и отправляем экспресс-авиапочтой (DHL/FedEx) в вашу ростерию.</p>
+        </li>
+        <li>
+          <b>3</b>
+          <h3>Каппинг</h3>
+          <p>Вы тестируете образцы, утверждаете лот и согласовываем базис поставки (FOB/CIF) и контракт.</p>
+        </li>
+        <li>
+          <b>4</b>
+          <h3>Отгрузка</h3>
+          <p>Контролируем упаковку, оформляем фитосанитарные документы и отгружаем авиа или морем.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
 
-<section id="terms"><div class="wrap">
-<div class="head"><h2>Условия поставки</h2><p>Всё, что закупщик обычно спрашивает в первом письме, собрано в одной таблице.</p></div>
-<div class="tw"><table>
-<tr><th>Минимальный заказ</th><td>От 1 мешка авиа. Морем: контейнер FCL или сборный LCL</td></tr>
-<tr><th>Инкотермс</th><td><span class="fill">УКАЖИТЕ: FOB / CIF / DAP</span></td></tr>
-<tr><th>Оплата</th><td><span class="fill">УКАЖИТЕ</span></td></tr>
-<tr><th>Сроки сэмпла</th><td><span class="fill">УКАЖИТЕ</span></td></tr>
-<tr><th>Сроки отгрузки</th><td>Авиа: <span class="fill">УКАЖИТЕ</span>. Море: <span class="fill">УКАЖИТЕ</span></td></tr>
-<tr><th>Упаковка</th><td>Мешки с вкладышем GrainPro</td></tr>
-<tr><th>Документы</th><td><span class="fill">УКАЖИТЕ перечень</span></td></tr>
-</table></div>
-</div></section>
+  <!-- Terms Section -->
+  <section id="terms">
+    <div class="wrap">
+      <div class="head">
+        <h2>Условия поставки</h2>
+        <p>Базовые коммерческие условия и логистические регламенты PapaPB.</p>
+      </div>
+      <div class="tw">
+        <table>
+          <tr>
+            <th>Минимальный заказ (MOQ)</th>
+            <td>Авиа-отгрузка: от 1 мешка (60 кг). Морская доставка: от 5 мешков (LCL) или полные контейнеры (FCL).</td>
+          </tr>
+          <tr>
+            <th>Базисы поставки (Incoterms)</th>
+            <td>FOB Найроби (аэропорт / порт Момбаса) или CIF (с доставкой до порта/терминала назначения).</td>
+          </tr>
+          <tr>
+            <th>Упаковка и контроль</th>
+            <td>Стандартная экспортная подготовка: вкладыш GrainPro + внешняя джутовая рогожка (60 кг мешок) с фотоконтролем перед отгрузкой.</td>
+          </tr>
+          <tr>
+            <th>Сроки экспресс-сэмплов</th>
+            <td><span class="fill">УКАЖИТЕ, напр. 4-7 рабочих дней</span> до вашей ростерии.</td>
+          </tr>
+          <tr>
+            <th>Сроки отгрузки партий</th>
+            <td>Авиа-карго: <span class="fill">УКАЖИТЕ</span>. Морская доставка: <span class="fill">УКАЖИТЕ</span>.</td>
+          </tr>
+          <tr>
+            <th>Документы для ввоза</th>
+            <td>Phytosanitary Certificate, Certificate of Origin, ICO Certificate, Commercial Invoice, Packing List, Air Waybill / Bill of Lading.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
 
-<section id="about"><div class="wrap about">
-<div class="photo">Фото основателя<br>на станции или за столом каппинга</div>
-<div>
-<h2>Кто стоит за PapaPB</h2>
-<p><span class="fill">УКАЖИТЕ имя</span> живёт в Найроби и сам отбирает кофе: ездит на станции обработки, проводит каппинг и контролирует фасовку. Ваш контакт в Кении один и тот же от запроса до отгрузки.</p>
-<p>Юридическое лицо: <span class="fill">УКАЖИТЕ</span>. Экспортная лицензия: <span class="fill">УКАЖИТЕ номер</span>.</p>
-<p>Здесь же покажите фото отгрузок, отзывы ростерий и логотипы клиентов, когда они появятся. Для первой закупки это самый сильный аргумент.</p>
-</div>
-</div></section>
+  <!-- About Section -->
+  <section id="about">
+    <div class="wrap about">
+      <div class="photo">
+        <strong>[Фото основателя / команды]</strong><br>
+        На складе в Найроби или за столом каппинга
+      </div>
+      <div>
+        <h2>Кто стоит за PapaPB</h2>
+        <p>Команда **PapaPB** базируется непосредственно в Найроби (Кения) и контролирует операции на месте: от посещения аукционов и станций обработки до формирования сэмпл-китов и проверки упаковки перед запечаткой контейнеров.</p>
+        <p>Мы работаем напрямую с обжарщиками в РФ и СНГ, обеспечивая прозрачные условия закупки без лишних звеньев в цепочке поставки.</p>
+        <p style="font-size: 0.9em; opacity: 0.8; margin-top: 24px;">
+          Юридическое лицо: <span class="fill">Agropeat International Ltd / PapaPB</span><br>
+          Регистрация и локация: Nairobi, Kenya<br>
+          Экспортные документы: KCB / Coffee Export Ref #<span class="fill">УКАЖИТЕ</span>
+        </p>
+      </div>
+    </div>
+  </section>
 
-<section id="sample"><div class="wrap">
-<div class="head"><h2>Запросить сэмпл-кит</h2><p>Ответим с наличием лотов и ценами. Заявка откроется в вашей почте, останется только отправить.</p></div>
-<form class="form" id="f">
-<label>Имя<input name="n" required autocomplete="name"></label>
-<label>Компания<input name="c" autocomplete="organization"></label>
-<label>Город и страна<input name="g" required></label>
-<label>Тип бизнеса<select name="t"><option>Ростерия</option><option>Кофейня с обжаркой</option><option>Импортёр или трейдер</option><option>Другое</option></select></label>
-<label>Грейд<select name="r"><option>PB</option><option>AA</option><option>AB</option><option>Несколько грейдов</option></select></label>
-<label>Примерный объём<input name="v" placeholder="например, 5 мешков в месяц"></label>
-<label class="full">Telegram или WhatsApp<input name="m" required></label>
-<label class="full">Комментарий<textarea name="k" rows="3"></textarea></label>
-<div class="full"><button class="btn" type="submit">Отправить заявку</button></div>
-<p class="note full">Или напишите сразу: <a href="mailto:pb@papapeaberry.site">pb@papapeaberry.site</a>, <a href="https://t.me/papapb_coffee">Telegram @papapb_coffee</a></p>
-</form>
-</div></section>
+  <!-- Form Section -->
+  <section id="sample">
+    <div class="wrap">
+      <div class="head">
+        <h2>Запросить Offer-sheet и сэмпл-кит</h2>
+        <p>Заполните форму, и мы вышлем актуальный прайс-лист урожая с описанием лотов и отправим образцы.</p>
+      </div>
+      <form class="form" id="f">
+        <label>Ваше имя *<input name="n" required autocomplete="name" placeholder="Иван"></label>
+        <label>Название ростерии / компании *<input name="c" required autocomplete="organization" placeholder="Tasty Roasters"></label>
+        <label>Город и страна *<input name="g" required placeholder="Москва, Россия"></label>
+        <label>Тип бизнеса
+          <select name="t">
+            <option>Ростерия</option>
+            <option>Кофейня со своей обжаркой</option>
+            <option>Импортёр / Трейдер</option>
+            <option>Другое</option>
+          </select>
+        </label>
+        <label>Интересующие грейды
+          <select name="r">
+            <option>Комплексный сэмпл-кит (PB + AA + AB)</option>
+            <option>Kenya PB (Peaberry)</option>
+            <option>Kenya AA</option>
+            <option>Kenya AB</option>
+          </select>
+        </label>
+        <label>Примерный объём закупки<input name="v" placeholder="напр. 5 мешков / 1 контейнер"></label>
+        <label class="full">Telegram или WhatsApp для связи *<input name="m" required placeholder="@username или +7 (999) 000-00-00"></label>
+        <label class="full">Комментарий или пожелания к профилю чашки<textarea name="k" rows="3" placeholder="Укажите интересующие вкусовые профили, требования к баллам SCA и т.д."></textarea></label>
+        <div class="full">
+          <button class="btn" type="submit">Отправить запрос на pb@papapeaberry.site</button>
+        </div>
+        <p class="note full">Или свяжитесь напрямую: <a href="mailto:pb@papapeaberry.site">pb@papapeaberry.site</a> | Telegram: <a href="https://t.me/papapb_coffee" target="_blank">@papapb_coffee</a></p>
+      </form>
+    </div>
+  </section>
 
-<section id="faq"><div class="wrap">
-<h2>Частые вопросы</h2>
-<details><summary>Сколько стоит сэмпл-кит?</summary><p><span class="fill">УКАЖИТЕ</span>. Если сэмпл возвращается в заказ, напишите это здесь.</p></details>
-<details><summary>Какой минимальный заказ?</summary><p>Один мешок самолётом. Для морской доставки: контейнер целиком (FCL) или сборный груз (LCL).</p></details>
-<details><summary>Как быстро кофе приезжает?</summary><p>Авиа: <span class="fill">УКАЖИТЕ</span>. Море: <span class="fill">УКАЖИТЕ</span>. Срок зависит от маршрута и таможни.</p></details>
-<details><summary>Какие документы нужны для ввоза в Россию?</summary><p>Набор зависит от маршрута и вашего брокера. Мы заранее согласуем перечень и готовим пакет со своей стороны: <span class="fill">УКАЖИТЕ</span>.</p></details>
-<details><summary>Как оплатить?</summary><p><span class="fill">УКАЖИТЕ способы и схему платежа</span>.</p></details>
-<details><summary>Как я проверю качество до оплаты?</summary><p>Проведите каппинг присланного сэмпла и сравните с описанием лота. Партию мы отгружаем после вашего утверждения.</p></details>
-</div></section>
+  <!-- FAQ Section -->
+  <section id="faq">
+    <div class="wrap">
+      <h2>Часто задаваемые вопросы</h2>
+      <details>
+        <summary>Как заказать сэмпл-кит и сколько это стоит?</summary>
+        <p>Сэмпл-киты сформированных лотов предоставляются бесплатно для действующих ростерий. Заказчик оплачивает только стоимость экспресс-курьерской доставки из Найроби. <span class="fill">Уточнить детали</span></p>
+      </details>
+      <details>
+        <summary>Каков минимальный объём заказа (MOQ)?</summary>
+        <p>Минимальная отгрузка самолётом (Air Cargo) составляет всего 1 мешок (60 кг). Для морских отгрузок доступен сборный груз (LCL от 5 мешков) или полные контейнеры (FCL).</p>
+      </details>
+      <details>
+        <summary>Как гарантируется соответствие кофе утверждённому сэмплу?</summary>
+        <p>Партия отгружается строго из того же лота, с которого брался сэмпл. Перед запечатыванием мешков мы проводим контрольный каппинг на экспортном складе в Найроби и предоставляем фото/видеотчёт.</p>
+      </details>
+      <details>
+        <summary>Какие документы предоставляются для импорта в РФ/СНГ?</summary>
+        <p>Полный комплект: Phytosanitary Certificate (Фитосанитарный), Certificate of Origin (Форма A), ICO Certificate, Инвойс, Упаковочный лист и Накладная (Air Waybill / Bill of Lading).</p>
+      </details>
+      <details>
+        <summary>Какие варианты оплаты поддерживаются?</summary>
+        <p><span class="fill">УКАЖИТЕ доступные схемы (SWIFT / ТТ / Банковский перевод / Аккредитив)</span></p>
+      </details>
+    </div>
+  </section>
 </main>
 
-<footer><div class="wrap">
-<div><strong>PapaPB</strong><br>Экспорт зелёного кофе из Кении<br>Найроби</div>
-<div>pb@papapeaberry.site<br><a href="https://t.me/papapb_coffee">Telegram @papapb_coffee</a><br>WhatsApp: <span class="fill">УКАЖИТЕ</span></div>
-<div>Юрлицо: <span class="fill">УКАЖИТЕ</span></div>
-</div></footer>
+<footer>
+  <div class="wrap">
+    <div>
+      <strong>PapaPB Direct Coffee Export</strong><br>
+      Прямой экспорт зелёного кофе из Кении<br>
+      Nairobi, Kenya
+    </div>
+    <div>
+      Email: <a href="mailto:pb@papapeaberry.site">pb@papapeaberry.site</a><br>
+      Telegram: <a href="https://t.me/papapb_coffee" target="_blank">@papapb_coffee</a><br>
+      WhatsApp: <span class="fill">+254 [УКАЖИТЕ]</span>
+    </div>
+    <div>
+      Юридическое лицо: <span class="fill">Agropeat International Ltd / PapaPB</span>
+    </div>
+  </div>
+</footer>
 
 <script>
-document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var d=new FormData(this);
-var b=['Имя: '+d.get('n'),'Компания: '+d.get('c'),'Город и страна: '+d.get('g'),'Тип бизнеса: '+d.get('t'),'Грейд: '+d.get('r'),'Объём: '+d.get('v'),'Контакт: '+d.get('m'),'Комментарий: '+d.get('k')].join('\n');
-window.location.href='mailto:pb@papapeaberry.site?subject='+encodeURIComponent('Запрос сэмпл-кита')+'&body='+encodeURIComponent(b);});
+document.getElementById('f').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var d = new FormData(this);
+    var bodyText = [
+        'Имя: ' + d.get('n'),
+        'Компания: ' + d.get('c'),
+        'Город/Страна: ' + d.get('g'),
+        'Тип бизнеса: ' + d.get('t'),
+        'Грейды: ' + d.get('r'),
+        'Объём: ' + d.get('v'),
+        'Контакт: ' + d.get('m'),
+        'Комментарий: ' + d.get('k')
+    ].join('\n');
+    
+    window.location.href = 'mailto:pb@papapeaberry.site?subject=' + encodeURIComponent('Запрос Offer-sheet и сэмплов с сайта') + '&body=' + encodeURIComponent(bodyText);
+});
 </script>
 </body>
 </html>
